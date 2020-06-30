@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="width:100%">
+    <div style="display:flex;flex-direction:row;width:100%">
+        {% if data %}
+            <div style = "margin:0 auto">
+            {% for key in data %}
+                {% if loop.index + 1 < data|length / 2 %}
+                    <h3 style="display: inline;">'{{key}}'</h3>   <b>used</b> <h3 style="display: inline;">{{data[key]}}</h3> <b>times</b> <br>
+                {% else %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div style = "margin:0 auto">
+                {% for key in data %}
+                    {% if loop.index + 1 < data|length / 2 %}
+                        
+                    {% else %}
+                    <h3 style="display: inline;">'{{key}}'</h3>   <b>used</b> <h3 style="display: inline;">{{data[key]}}</h3> <b>times</b> <br>
+                    {% endif %}
+                {% endfor %}
+                </div>
+        {% endif %}
+    </div>
+        {% if imgname %}
+        <img src="../getimage/{{imgname}}">
+        {% endif %}
+</div>
+
+<form style="width:100%;height: 100px;" action="{{url_for('upload')}}">
+            <input style="background-color: #4CAF50;
+            margin:20px 35%;
+            width:30%;
+            border: none;
+            border-radius: 5sp;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 16px;" type="submit" value="UPLOAD NEW FILE" />
+</form>
+{% endblock %}
