@@ -10,8 +10,7 @@ import uuid
 @app.route('/index')
 def index():
     text = "Классный сайт ЙУЮХУУУ"
-    countries = {'Russia': 'Moscow', 'Italy': 'Rome', 'Finland': 'Oslo'}
-    return render_template('index.html', title=text, data=countries)
+    return render_template('index.html', title=text)
 @app.route('/template')
 def lol():
     return render_template('index.html', name="lol")
