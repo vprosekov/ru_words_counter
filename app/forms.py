@@ -9,4 +9,3 @@ class MyForm(FlaskForm):
         FileRequired(),
         FileAllowed(['txt'], 'TXT Files only!')
     ])
-    submit = SubmitField('Передать')

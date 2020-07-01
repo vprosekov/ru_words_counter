@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <form method='POST' enctype='multipart/form-data'>
-        {{form.hidden_tag()}}<br>
-        
-        {{form.file.label}}
-        {{form.file}}
-        {{form.submit}}
-    </form>
+    <div style = "margin-left: auto; margin-right: auto; margin-top: 0.2sp; display: flex; flex-direction: column; width: 30%; height: 50%">
+        <form method='POST' enctype='multipart/form-data' style = "display: flex; flex-direction: column;">
+            {{form.hidden_tag()}}<br>
+            
+            <h3 style="text-align: center;">Select {{form.file.label}} and submit</h3>
+            {{form.file}}
+            <input id="submit" name="submit" type="submit" value="Upload" style="margin-top:10px">
+        </form>
+    </div>
 {% endblock %}
