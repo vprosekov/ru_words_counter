@@ -4,6 +4,8 @@ from app.forms import MyForm
 from werkzeug.utils import secure_filename
 import os
 
+from datetime import datetime
+
 import uuid
 
 @app.route('/')
@@ -22,6 +24,7 @@ def upload():
         f = form.file.data
         filename = str(uuid.uuid4())[:5]+'.'+f.filename.split('.')[-1]
         print(filename) 
+        startTime = datetime.now()
         if(os.path.exists(os.path.join(os.getcwd(), 'app', 'files'))):
             f.save(os.path.join(os.getcwd(), 'app', 'files', filename))
             with open(os.path.join(os.getcwd(), 'app', 'files', filename), 'r') as f_:
@@ -29,7 +32,7 @@ def upload():
                 print(data)
                 counter.make_letters_hist(data, os.path.join(os.getcwd(), 'app', 'files', filename.split('.')[0]))
             
-            return render_template('index.html', fname=str(f.filename), data = data, imgname = filename.split('.')[0])
+            return render_template('index.html', fname=str(f.filename), data = data, imgname = filename.split('.')[0], takeTime = datetime.now() - startTime)
         else:
             return render_template('upload.html', form=form)
         

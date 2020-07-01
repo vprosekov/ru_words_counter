@@ -22,6 +22,13 @@
         {% endif %}
     </h1>
     {% block content %} {% endblock %}
+    <div style="margin-bottom: 0; width:100%; background-color: black; color: white;">
+      <h1 style="margin-left: 0; font-size: 1em;">
+          {% if takeTime %}
+          Script was executed in {{takeTime}}
+          {% endif %}
+      </h1>
+    </div>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
