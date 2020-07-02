@@ -14,6 +14,7 @@ Install Flask and matplotlib
 
 ```sh
 (venv)$ pip install flask #Installing Flask
+(venv)$ pip install Flask-WTF #Installing Flask-WTF
 (venv)$ pip install matplotlib #Installing matplotlib
 (venv)$ cd ru_words_counter #Open project folder
 (venv)$ python app.py #Run app
